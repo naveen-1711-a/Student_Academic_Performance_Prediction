@@ -1,0 +1,229 @@
+{
+  "features": [
+    "school",
+    "sex",
+    "age",
+    "address",
+    "famsize",
+    "Pstatus",
+    "Medu",
+    "Fedu",
+    "Mjob",
+    "Fjob",
+    "reason",
+    "guardian",
+    "traveltime",
+    "studytime",
+    "failures",
+    "schoolsup",
+    "famsup",
+    "paid",
+    "activities",
+    "nursery",
+    "higher",
+    "internet",
+    "romantic",
+    "famrel",
+    "freetime",
+    "goout",
+    "Dalc",
+    "Walc",
+    "health",
+    "absences"
+  ],
+  "validation": {
+    "school": {
+      "type": "choice",
+      "values": [
+        "GP",
+        "MS"
+      ]
+    },
+    "sex": {
+      "type": "choice",
+      "values": [
+        "F",
+        "M"
+      ]
+    },
+    "age": {
+      "type": "range",
+      "min": 15,
+      "max": 22
+    },
+    "address": {
+      "type": "choice",
+      "values": [
+        "R",
+        "U"
+      ]
+    },
+    "famsize": {
+      "type": "choice",
+      "values": [
+        "GT3",
+        "LE3"
+      ]
+    },
+    "Pstatus": {
+      "type": "choice",
+      "values": [
+        "A",
+        "T"
+      ]
+    },
+    "Medu": {
+      "type": "range",
+      "min": 0,
+      "max": 4
+    },
+    "Fedu": {
+      "type": "range",
+      "min": 0,
+      "max": 4
+    },
+    "Mjob": {
+      "type": "choice",
+      "values": [
+        "teacher",
+        "health",
+        "services",
+        "at_home",
+        "other"
+      ]
+    },
+    "Fjob": {
+      "type": "choice",
+      "values": [
+        "teacher",
+        "health",
+        "services",
+        "at_home",
+        "other"
+      ]
+    },
+    "reason": {
+      "type": "choice",
+      "values": [
+        "home",
+        "reputation",
+        "course",
+        "other"
+      ]
+    },
+    "guardian": {
+      "type": "choice",
+      "values": [
+        "mother",
+        "father",
+        "other"
+      ]
+    },
+    "traveltime": {
+      "type": "range",
+      "min": 1,
+      "max": 4
+    },
+    "studytime": {
+      "type": "range",
+      "min": 1,
+      "max": 4
+    },
+    "failures": {
+      "type": "range",
+      "min": 0,
+      "max": 3
+    },
+    "schoolsup": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "famsup": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "paid": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "activities": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "nursery": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "higher": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "internet": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "romantic": {
+      "type": "choice",
+      "values": [
+        "yes",
+        "no"
+      ]
+    },
+    "famrel": {
+      "type": "range",
+      "min": 1,
+      "max": 5
+    },
+    "freetime": {
+      "type": "range",
+      "min": 1,
+      "max": 5
+    },
+    "goout": {
+      "type": "range",
+      "min": 1,
+      "max": 5
+    },
+    "Dalc": {
+      "type": "range",
+      "min": 1,
+      "max": 5
+    },
+    "Walc": {
+      "type": "range",
+      "min": 1,
+      "max": 5
+    },
+    "health": {
+      "type": "range",
+      "min": 1,
+      "max": 5
+    },
+    "absences": {
+      "type": "range",
+      "min": 0,
+      "max": 75
+    }
+  }
+}

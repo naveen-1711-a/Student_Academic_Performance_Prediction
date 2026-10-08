@@ -1,0 +1,30 @@
+[
+  {
+    "Model":"Random Forest",
+    "Accuracy":0.582278481,
+    "Precision":0.5854000802,
+    "Recall":0.582278481,
+    "F1 Score":0.5650083407
+  },
+  {
+    "Model":"Logistic Regression",
+    "Accuracy":0.5316455696,
+    "Precision":0.5404995155,
+    "Recall":0.5316455696,
+    "F1 Score":0.5300773171
+  },
+  {
+    "Model":"Gradient Boosting",
+    "Accuracy":0.5189873418,
+    "Precision":0.5100333628,
+    "Recall":0.5189873418,
+    "F1 Score":0.5124425692
+  },
+  {
+    "Model":"SVM",
+    "Accuracy":0.4556962025,
+    "Precision":0.4918471861,
+    "Recall":0.4556962025,
+    "F1 Score":0.4624993279
+  }
+]
