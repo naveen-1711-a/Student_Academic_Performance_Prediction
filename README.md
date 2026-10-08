@@ -74,7 +74,8 @@ student-performance-prediction/
 ## 🛠️ Installation & Usage
 
 1. **Clone the repository:**
-   ```bash
+   ```bash and git clone
+  
    git clone https://github.com/naveen-1711-a/Student_Academic_Performance_Prediction.git
    cd Student_Academic_Performance_Prediction/student-performance-prediction
    ```
