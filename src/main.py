@@ -9,6 +9,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
+from sklearn.decomposition import PCA
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -55,7 +56,7 @@ print(df.head())
 
 
 # ==========================================
-# 2. DATA QUALITY CHECK
+# 2. DATA QUALITY CHECK (Noise, Missing Values, Outliers, Duplicates)
 # ==========================================
 
 print("\nMissing Values:")
@@ -67,6 +68,15 @@ print(df.duplicated().sum())
 print("\nData Types:")
 print(df.dtypes)
 
+print("\nOutlier Detection (IQR Method on Numerical Features):")
+numerical_cols = df.select_dtypes(include=['int64', 'float64']).columns
+for col in numerical_cols:
+    Q1 = df[col].quantile(0.25)
+    Q3 = df[col].quantile(0.75)
+    IQR = Q3 - Q1
+    outliers = ((df[col] < (Q1 - 1.5 * IQR)) | (df[col] > (Q3 + 1.5 * IQR))).sum()
+    if outliers > 0:
+        print(f"  - {col}: {outliers} outliers identified")
 
 # ==========================================
 # 3. REMOVE DUPLICATES
@@ -124,7 +134,7 @@ plt.savefig(
     OUTPUTS_DIR / "performance_distribution.png"
 )
 
-plt.show()
+# plt.show() # Commented out to run headlessly
 
 
 # ==========================================
@@ -280,7 +290,7 @@ models = {
 
 
 # ==========================================
-# 11. TRAIN AND EVALUATE
+# 11. TRAIN AND EVALUATE (WITH PCA)
 # ==========================================
 
 results = []
@@ -301,6 +311,10 @@ for name, classifier in models.items():
             (
                 "preprocessor",
                 preprocessor
+            ),
+            (
+                "pca",
+                PCA(n_components=0.95, random_state=42) # Keep 95% variance
             ),
             (
                 "classifier",
@@ -404,7 +418,7 @@ plt.ylim(0, 1)
 plt.xticks(rotation=30, ha="right")
 plt.tight_layout()
 plt.savefig(OUTPUTS_DIR / "model_f1_comparison.png")
-plt.show()
+# plt.show() # Commented out to run headlessly
 
 
 # ==========================================
@@ -449,7 +463,7 @@ plt.savefig(
     OUTPUTS_DIR / "confusion_matrix.png"
 )
 
-plt.show()
+# plt.show() # Commented out to run headlessly
 
 
 # ==========================================
