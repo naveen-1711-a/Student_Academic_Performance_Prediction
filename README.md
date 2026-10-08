@@ -2,13 +2,37 @@
 
 An end-to-end Machine Learning project to predict student academic performance based on demographic, social, and school-related features.
 
+## 📊 Dataset
+**Source**: [UCI Student Performance Dataset](https://archive.ics.uci.edu/dataset/320/student+performance)
+
+The dataset includes various features such as:
+- Student grades, demographic, social and school related features.
+- Performance is categorized into:
+  - **Low**: Grade < 10
+  - **Medium**: 10 ≤ Grade < 15
+  - **High**: Grade ≥ 15
+
+## 🧠 Models Used & Selection
+The pipeline trains and evaluates the following Machine Learning models:
+- **Logistic Regression**
+- **Random Forest**
+- **Gradient Boosting**
+- **Support Vector Machine (SVM)**
+
+### 🏆 Best Model
+The training script automatically compares these models and selects the one with the highest **F1 Score** to handle class imbalances. Typically, ensemble methods like **Random Forest** or **Gradient Boosting** perform the best on this dataset and are selected as the final model (`student_performance_model.pkl`) for predictions.
+
+### 🔍 PCA Feature Selection (Concepts & Application)
+Principal Component Analysis (PCA) can be applied to this dataset to reduce dimensionality and perform feature selection:
+- **How it works:** PCA transforms the original features into a new set of uncorrelated variables (principal components) that capture the maximum variance in the data.
+- **Why use it:** After One-Hot Encoding categorical variables, the feature space grows significantly. PCA helps in reducing noise, preventing overfitting, and speeding up model training while retaining the most important information (e.g., keeping 95% of the variance).
+
 ## 🚀 Features
-- **Machine Learning Pipeline**: Trains and evaluates multiple models (Logistic Regression, Random Forest, Gradient Boosting, SVM).
-- **Automated Model Selection**: Automatically selects and saves the best-performing model based on F1 Score.
+- **Machine Learning Pipeline**: Automated preprocessing, training, and evaluation.
 - **Two User Interfaces**:
   - **Desktop GUI**: Built with `tkinter` for local predictions.
   - **Web Application**: Built with `FastAPI`, providing a REST API and a responsive web frontend.
-- **Actionable Recommendations**: Provides tailored advice based on the predicted performance level (Low, Medium, High).
+- **Actionable Recommendations**: Provides tailored advice based on the predicted performance level.
 
 ## 📁 Directory Structure
 ```text
@@ -19,10 +43,6 @@ student-performance-prediction/
 │   ├── student_performance_model.pkl # Best trained ML model
 │   └── input_schema.json             # Input validation schema
 ├── outputs/                          # Generated plots and evaluation results
-│   ├── confusion_matrix.png
-│   ├── model_f1_comparison.png
-│   ├── performance_distribution.png
-│   └── model_results.csv / .json
 ├── src/
 │   ├── main.py                       # ML pipeline (training & evaluation)
 │   └── predict.py                    # Prediction script
@@ -33,57 +53,37 @@ student-performance-prediction/
 ```
 
 ## 🛠️ Installation
-
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/naveen-1711-a/Student_Academic_Performance_Prediction.git
    cd Student_Academic_Performance_Prediction/student-performance-prediction
    ```
-
 2. **Create a virtual environment (optional but recommended):**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows use: venv\Scripts\activate
    ```
-
 3. **Install the dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-## 🧠 Training the Model
+## 💻 Usage
 
-If you wish to retrain the model or test on a different dataset:
+### 1. Training the Model
 ```bash
 python src/main.py
 ```
-This will:
-- Load and preprocess the dataset.
-- Train several classifier models.
-- Compare them and save the best one as a `.pkl` file in `models/`.
-- Save evaluation plots and metrics in the `outputs/` folder.
+This script loads the dataset, trains all the models, compares them, and saves the best one.
 
-## 💻 Usage
-
-### 1. Run the Desktop GUI (Tkinter)
-To launch the standalone desktop application:
+### 2. Run the Desktop GUI (Tkinter)
 ```bash
 python app.py
 ```
-*A window will appear allowing you to input student details and get a prediction.*
 
-### 2. Run the Web App & API (FastAPI)
-To serve the web application and REST API locally:
+### 3. Run the Web App & API (FastAPI)
 ```bash
 uvicorn app:app --reload
 ```
-- **Web UI**: Open your browser and navigate to [http://localhost:8000/](http://localhost:8000/)
-- **API Docs (Swagger)**: View the API documentation at [http://localhost:8000/docs](http://localhost:8000/docs)
-
-## 📊 Dataset
-The dataset includes various features such as:
-- Student grades, demographic, social and school related features.
-- Performance is categorized into:
-  - **Low**: Grade < 10
-  - **Medium**: 10 ≤ Grade < 15
-  - **High**: Grade ≥ 15
+- **Web UI**: Open your browser at [http://localhost:8000/](http://localhost:8000/)
+- **API Docs (Swagger)**: View API documentation at [http://localhost:8000/docs](http://localhost:8000/docs)
