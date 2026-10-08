@@ -1,4 +1,4 @@
-# Student Academic Performance Prediction
+# Student Academic Performance Prediction and Analysis
 
 An end-to-end Machine Learning project to predict academic outcomes and understand factors associated with student performance in the Education / EdTech industry. 
 
